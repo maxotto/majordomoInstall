@@ -2,10 +2,15 @@ sudo apt-get install mysql-server mysql-client -y
 sudo apt-get install apache2 apache2-utils -y
 sudo apt-get install php5-cgi php5-cli libapache2-mod-php5 php5 php-pear php5-xcache php5-curl -y
 sudo apt-get install phpmyadmin -y
-sudo mod_rewrite sudo a2enmod rewrite
+sudo a2enmod rewrite
 sudo nano /etc/apache2/sites-available/000-default.conf
 sudo apache2ctl restart
 sudo apt-get install mosquitto -y
+sudo apt-get install vsftpd
+sudo service vsftpd restart
+sudo apt-get install mplayer -y
+sudo apt-get install vlc -y 
+sudo usermod -a -G audio www-data
 git clone https://github.com/sergejey/majordomo.git
 sudo rm -rf /var/www/html
 mv majordomo html
