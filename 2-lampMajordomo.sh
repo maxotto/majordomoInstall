@@ -8,7 +8,7 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 sudo apache2ctl restart
 # UTILS
 sudo apt-get install mosquitto -y
-sudo apt-get install vsftpd
+sudo apt-get install vsftpd -y
 sudo service vsftpd restart
 sudo apt-get install mplayer -y
 sudo apt-get install mc -y 
