@@ -24,6 +24,8 @@ sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 777 /var/www/html
 sudo usermod -a -G audio www-data
 # MAIN CYCLE
+# @reboot /usr/bin/php /var/www/html/cycle.php &
+# @reboot echo "hi" > /home/pi/reboot.txt 2>&1
 # @reboot /usr/bin/php /var/www/cycle.php
 # @reboot /usr/sbin/ntpdate -s ntp.time.in.ua > /dev/null
 sudo nano /etc/crontab -e

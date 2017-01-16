@@ -14,4 +14,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 @reboot /usr/bin/php /var/www/html/cycle.php &
 @reboot echo "hi" > /home/pi/reboot.txt 2>&1
+@reboot /usr/bin/php /var/www/cycle.php
+@reboot /usr/sbin/ntpdate -s ntp.time.in.ua > /dev/null
 #
