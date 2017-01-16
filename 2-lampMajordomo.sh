@@ -29,3 +29,11 @@ sudo usermod -a -G audio www-data
 # @reboot /usr/bin/php /var/www/cycle.php
 # @reboot /usr/sbin/ntpdate -s ntp.time.in.ua > /dev/null
 sudo nano /etc/crontab -e
+ECHO=/bin/echo
+n="-n"
+$ECHO $n "CREATE DATABASE db_terminal CHARACTER SET utf8 COLLATE utf8_general_ci;" >> sql.sql
+mysql --user=root < sql.sql -p
+rm sql.sql
+mysql --user=root db_terminal < /var/www/html/db_terminal.sql -p
+cp /var/www/html/config.php.sample /var/www/html/config.php
+sudo nano /var/www/html/config.php
