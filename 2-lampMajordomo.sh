@@ -104,5 +104,7 @@ sudo mysql  --user=$DB_USER --password=$DB_PASSWORD $DB_NAME < /var/www/html/$DB
 cp /var/www/html/config.php.sample /var/www/html/config.php
 sudo sed -i "s/^Define('DB_PASSWORD'.*/Define('DB_PASSWORD', '$DB_PASSWORD');/" /var/www/html/config.php
 sudo nano /var/www/html/config.php
-sudo reboot
+clear
+echo "Main cycle started"
+sudo /usr/bin/php /var/www/html/cycle.php
 
