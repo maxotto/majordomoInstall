@@ -1,4 +1,12 @@
 # majordomoInstall
 Helps to install Majordomo Smart House system on Raspberry PI Paspbian Jessie
-1 - clone 
-2 - run bash 1
+##Step 1 - preparations
+`git clone https://github.com/maxotto/majordomoInstall.git`
+`cd majordomoInstall`
+`bash 1-updateUpgradeReboot.sh`
+
+##Step 2 - installation
+First, edit 2-lampMajordomo.sh and set DB_PASSWORD="myDBPassword". Use this password during MySql and PhpMyAdmin installation
+`cd majordomoInstall`
+`bash 2-lampMajordomo.sh`
+
