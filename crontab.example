@@ -15,5 +15,5 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 @reboot /usr/bin/php /var/www/html/cycle.php &
 @reboot echo "hi" > /home/pi/reboot.txt 2>&1
 @reboot /usr/bin/php /var/www/cycle.php
-@reboot /usr/sbin/ntpdate -s ntp.time.in.ua > /dev/null
+@reboot /usr/sbin/ntpdate -s ntp5.stratum2.ru > /dev/null
 #
