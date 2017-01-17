@@ -1,7 +1,7 @@
 # majordomoInstall
 Helps to install Majordomo Smart House system on Raspberry PI Paspbian Jessie
 ##Step 1 - preparations
-Set up Raspberry according to your wish. Set WiFi connection, timezone, locale and so on. Then:
+It is better to use fresh Raspbian OS installation. I use [NOOBS](https://www.raspberrypi.org/downloads/noobs/ "download page"). Set up Raspberry according to your wish. Set WiFi connection, timezone, locale and so on. Then:
 
 1 - `git clone https://github.com/maxotto/majordomoInstall.git`
 
