@@ -64,7 +64,8 @@ VHOST=$(cat <<EOF
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 EOF
 )
-echo "${VHOST}" > etc/apache2/sites-available/000-default.conf
+echo "${VHOST}" | sudo tee etc/apache2/sites-available/000-default.conf > /dev/null
+
 sudo apache2ctl restart
 
 # UTILS
@@ -96,7 +97,7 @@ sudo nano /etc/crontab -e
 
 # DB SETUP
 
-echo -n $n "CREATE DATABASE $DB_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;" >> sql.sql
+echo -n "CREATE DATABASE $DB_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;" >> sql.sql
 sudo mysql --user=$DB_USER --password=$DB_PASSWORD < sql.sql
 rm sql.sql
 sudo mysql  --user=$DB_USER --password=$DB_PASSWORD $DB_NAME < /var/www/html/$DB_NAME.sql
