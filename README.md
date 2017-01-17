@@ -1,6 +1,7 @@
 # majordomoInstall
 Helps to install Majordomo Smart House system on Raspberry PI Paspbian Jessie
 ##Step 1 - preparations
+Set up Raspberry according to your wish. Set WiFi connection, timezone, locale and so on.
 1 - `git clone https://github.com/maxotto/majordomoInstall.git`
 
 2 - `cd majordomoInstall`
@@ -16,8 +17,11 @@ First, edit `nano 2-lampMajordomo.sh` and set DB_PASSWORD="YourLovelyPassWord". 
 
 `bash 2-lampMajordomo.sh`
 
-Pay attentionon last string of the script `sudo /usr/bin/php /var/www/html/cycle.php`. We need to run it to create some folders with right rights.
+Read the script to see which utilities are going to be installed (mc, vlc and so on). 
 
-After that open browser, go to 127.0.0.1. Majordomo setup page should apear.
+Pay attentionon last string of the script is `sudo /usr/bin/php /var/www/html/cycle.php`. We need to run it to create some folders with right rights.
+
+Then open a browser, go to 127.0.0.1. Majordomo setup page should appear.
+Reboot by `sudo reboot` to check main cycle is starting at boot time. File `reboot.txt` should appear in home folder. Majordomo should be silent about errors in main cycle.
 
 
