@@ -93,7 +93,7 @@ sudo usermod -a -G audio www-data
 # @reboot /usr/bin/php /var/www/html/cycle.php &
 # @reboot echo "hi" > /home/pi/reboot.txt 2>&1
 # @reboot /usr/sbin/ntpdate -s ntp5.stratum2.ru > /dev/null
-sudo nano /etc/crontab -e
+sudo crontab -e
 
 # DB SETUP
 
@@ -104,3 +104,5 @@ sudo mysql  --user=$DB_USER --password=$DB_PASSWORD $DB_NAME < /var/www/html/$DB
 cp /var/www/html/config.php.sample /var/www/html/config.php
 sudo sed -i "s/^Define('DB_PASSWORD'.*/Define('DB_PASSWORD', '$DB_PASSWORD');/" /var/www/html/config.php
 sudo nano /var/www/html/config.php
+sudo reboot
+
