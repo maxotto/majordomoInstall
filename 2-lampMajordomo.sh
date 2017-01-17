@@ -95,11 +95,12 @@ sudo usermod -a -G audio www-data
 sudo nano /etc/crontab -e
 
 # DB SETUP
-ECHO=/bin/echo
-n="-n"
+
 $ECHO $n "CREATE DATABASE $DB_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;" >> sql.sql
 mysql --user=$DB_USER --password=$DB_PASSWORD < sql.sql
 rm sql.sql
 mysql  --user=$DB_USER --password=$DB_PASSWORD $DB_NAME < /var/www/html/$DB_NAME.sql
 cp /var/www/html/config.php.sample /var/www/html/config.php
+sed -i "s/^Define('DB_PASSWORD' .*/Define('DB_PASSWORD', '$DB_PASSWORD');" /var/www/html/config.php
+
 sudo nano /var/www/html/config.php
