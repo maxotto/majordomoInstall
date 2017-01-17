@@ -64,7 +64,7 @@ VHOST=$(cat <<EOF
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 EOF
 )
-echo "${VHOST}" | sudo tee etc/apache2/sites-available/000-default.conf > /dev/null
+echo "${VHOST}" | sudo tee /etc/apache2/sites-available/000-default.conf > /dev/null
 
 sudo apache2ctl restart
 
@@ -92,7 +92,7 @@ sudo usermod -a -G audio www-data
 # MAIN CYCLE AUTOSTART. PUT THIS ROWS AT THE END OF CRONTAB
 # @reboot /usr/bin/php /var/www/html/cycle.php &
 # @reboot echo "hi" > /home/pi/reboot.txt 2>&1
-# @reboot /usr/sbin/ntpdate -s ntp.time.in.ua > /dev/null
+# @reboot /usr/sbin/ntpdate -s ntp5.stratum2.ru > /dev/null
 sudo nano /etc/crontab -e
 
 # DB SETUP
