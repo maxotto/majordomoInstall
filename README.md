@@ -10,10 +10,14 @@ Helps to install Majordomo Smart House system on Raspberry PI Paspbian Jessie
 Then Raspberry reboots. To prevent it, edit script `nano 1-updateUpgradeReboot.sh`
 
 ##Step 2 - installation
-First, edit 2-lampMajordomo.sh and set DB_PASSWORD="myDBPassword". Use this password during MySql and PhpMyAdmin installation
+First, edit `nano 2-lampMajordomo.sh` and set DB_PASSWORD="YourLovelyPassWord". Use this password during MySql and PhpMyAdmin installation. Then:
 
 `cd majordomoInstall`
 
 `bash 2-lampMajordomo.sh`
+
+Pay attentionon last string of the script `sudo /usr/bin/php /var/www/html/cycle.php`. We need to run it to create some folders with right rights.
+
+After that open browser, go to 127.0.0.1. Majordomo setup page should apear.
 
 
