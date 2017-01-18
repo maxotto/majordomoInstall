@@ -26,4 +26,4 @@ During installation you will be asked to create `crontab` file. Use `crontab.exa
 Pay attentionon, last line of the script is `sudo /usr/bin/php /var/www/html/cycle.php`. We need to run it to create some folders with right rights before WEB subsystem does it itself with wrong rigths.
 
 Then open a browser, go to 127.0.0.1. Majordomo setup page should appear.
-Reboot by `sudo reboot` to check main cycle is starting at boot time. File `reboot.txt` should appear in home folder. Majordomo should be silent about errors in main cycle.
+Reboot by `sudo reboot` to check main cycle is starting at boot time. File `reboot.txt` should appear in home folder. Majordomo WEB interface should be silent about errors in main cycle.
