@@ -23,7 +23,7 @@ Read the script to see which utilities are going to be installed (mc, vlc, mosqu
 
 During installation you will be asked to create `crontab` file. Use `crontab.example` as example or use comments in `2-lampMajordomo.sh` script
 
-Pay attentionon, last line of the script is `sudo /usr/bin/php /var/www/html/cycle.php`. We need to run it to create some folders with right rights before WEB subsystem does it itself.
+Pay attentionon, last line of the script is `sudo /usr/bin/php /var/www/html/cycle.php`. We need to run it to create some folders with right rights before WEB subsystem does it itself with wrong rigths.
 
 Then open a browser, go to 127.0.0.1. Majordomo setup page should appear.
 Reboot by `sudo reboot` to check main cycle is starting at boot time. File `reboot.txt` should appear in home folder. Majordomo should be silent about errors in main cycle.
