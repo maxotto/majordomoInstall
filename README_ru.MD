@@ -1,7 +1,10 @@
 # majordomoInstall
-Helps to install Majordomo Smart House system on Raspberry PI Paspbian Jessie
-##Step 1 - preparations
-It is better to use fresh Raspbian OS installation. I use [NOOBS](https://www.raspberrypi.org/downloads/noobs/ "download page"). Set up Raspberry according to your wish. Set WiFi connection, timezone, locale and so on. Then:
+Помогает установить систему умного дома [MajorDoMo](http://majordomo.smartliving.ru/)  на Raspberry PI 3. Состоит из двух скриптов. Первый обеспечивает подключение новых источников и проводит апдейт и апгрейд системы. Также выложен файл примера для использования его при редактировании crontab.
+
+## Исходное состояние
+Рекомендуется использовать свежую инсталляцию Raspbian OS версии jessie. Я использовал [NOOBS](https://www.raspberrypi.org/downloads/noobs/ "download page"). Настройте минимально необходимые вещи, чтобы потом к ним не возвращаться - включите SSH, настройте WiFi соединение, зону времени, локали.
+## Шаг 2 - Подготовка
+Откройте терминал, запускайте команды:
 
 1 - `git clone https://github.com/maxotto/majordomoInstall.git`
 
@@ -9,21 +12,29 @@ It is better to use fresh Raspbian OS installation. I use [NOOBS](https://www.ra
 
 3 - `bash 1-updateUpgradeReboot.sh`
 
-At finish Raspberry reboots. To prevent it, edit script `nano 1-updateUpgradeReboot.sh` and comment last line.
-Make full backup image of the SD card (recommended)
+Последняя строка скрипта перегружает Raspberry PI. Можно отключить это, закомментировав эту строку в редакторе
 
-##Step 2 - installation
+`nano 1-updateUpgradeReboot.sh`
+
+После этого шага я обычно делаю полный бэкап SD карточки, чтобы больше к этому не возвращаться.
+
+## Шаг 3 - Собственно установка
+Запустите терминал, войдите в директорию со скриптами
+
 `cd majordomoInstall`
 
-First, edit `nano 2-lampMajordomo.sh` and set DB_PASSWORD="YourLovelyPassWord". Use this password during MySql and PhpMyAdmin installation. Then:
+Отредактируйте файл второго скрипта `nano 2-lampMajordomo.sh`. установите в нем свой пароль для доступа в БД MySql `DB_PASSWORD="YourLovelyPassWord"`. Используте этот же пароль при дальнейшей инсталляции MySql и PhpMyAdmin. Затем выполните скрипт:
 
 `bash 2-lampMajordomo.sh`
 
-Read the script to see which utilities are going to be installed (mc, vlc, mosquitto and so on). Edit according to your taste.
+В процессе исполнения скрипта устанавливаются необходимые компоненты. Это стек LAMP или просто утилиты, типа MC, или те, что необходимы для работы MajorDoMo (mplayer, vlc, mosquitto  и.т.п). Загляните в скрипт и, при необходимости, отредактируйте перечень таких утилит.
 
-During installation you will be asked to create `crontab` file. Use `crontab.example` as example or use comments in `2-lampMajordomo.sh` script
+Также есть строки изменяющие настроечные файлы PHP. В скрипте они даны скорее как пример, взяты из другого проекта. Могут быть неоптимальны для нашего случая.
 
-Pay attentionon, last line of the script is `sudo /usr/bin/php /var/www/html/cycle.php`. We need to run it to create some folders with right rights (777) before WEB subsystem does it itself with wrong rigths(771).
+В процессе инсталляции будет создаваться файл `crontab`. Вы попадете в соответствующий редактор, где надо будет указать команды, запускаемые при старте операционной системы. Для подсказки используйте файл `crontab.example` или возьмите строки непосредственно из  скрипта `2-lampMajordomo.sh`, не забыв удалить символ комментария #
 
-Then open a browser, go to 127.0.0.1. Majordomo setup page should appear.
-Reboot by `sudo reboot` to check main cycle is starting at boot time. File `reboot.txt` should appear in home folder. Majordomo WEB interface should be silent about errors in main cycle.
+ОБратите внимание на последнюю строку скрипта `sudo /usr/bin/php /var/www/html/cycle.php`. Я так делаю для того, чтобы именно этот скрипт создал некоторые папки с системе. Тогда они приобретают нужные права (777) и Главный Цикл не дает сообщений об ошибках. Если же мы первым делом запусти WWEB-интерфейс MajorDoMo, то нужные папки создадутся с правами 771 и главный цикл будет ругаться.
+
+Вот и все. После этого откройте в браузере адрес 127.0.0.1. Должна открыться начальная страница системы. После этого можно перегрузиться `sudo reboot`. После перезагрузки надо убедиться, что наши строки, вставленные в crontab, отработали нормально. Для этого смотрим в WEB-интерфейсе состояние главного цикла. 
+
+Если что-то пошло не так, проверяем наличие файла `reboot.txt` в домашней папке. Если он есть и он имеет время перезагрузки, то значит строки crontab отработали. Если же этого файла нет, то надо вручную запустить `crontab -e` и повторить настройку автозапуска Главного Цикла. 
