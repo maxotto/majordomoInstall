@@ -13,9 +13,9 @@ At finish Raspberry reboots. To prevent it, edit script `nano 1-updateUpgradeReb
 Make full backup image of the SD card (recommended)
 
 ##Step 2 - installation
-First, edit `nano 2-lampMajordomo.sh` and set DB_PASSWORD="YourLovelyPassWord". Use this password during MySql and PhpMyAdmin installation. Then:
-
 `cd majordomoInstall`
+
+First, edit `nano 2-lampMajordomo.sh` and set DB_PASSWORD="YourLovelyPassWord". Use this password during MySql and PhpMyAdmin installation. Then:
 
 `bash 2-lampMajordomo.sh`
 
