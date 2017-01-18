@@ -10,7 +10,7 @@ It is better to use fresh Raspbian OS installation. I use [NOOBS](https://www.ra
 3 - `bash 1-updateUpgradeReboot.sh`
 
 At finish Raspberry reboots. To prevent it, edit script `nano 1-updateUpgradeReboot.sh` and comment last line.
-Make full backup image of the SD card (recomended)
+Make full backup image of the SD card (recommended)
 
 ##Step 2 - installation
 First, edit `nano 2-lampMajordomo.sh` and set DB_PASSWORD="YourLovelyPassWord". Use this password during MySql and PhpMyAdmin installation. Then:
