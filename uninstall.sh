@@ -22,3 +22,5 @@ whereis mysql
 read -rsp $'Press enter to continue...\n'
 clear
 
+sudo apt-get autoremove 
+
