@@ -1,6 +1,7 @@
 DB_NAME="db_terminal"
 DB_USER="root"
 DB_PASSWORD="myDBPassword"
+APACHE_LOG_DIR="/var/log/apache2"
 
 # LAMP CORE
 sudo apt-get install mysql-server mysql-client -y
