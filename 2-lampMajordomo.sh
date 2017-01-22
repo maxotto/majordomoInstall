@@ -25,7 +25,7 @@ sudo apt-get install phpmyadmin -y
 sudo a2enmod rewrite
 
 # Add ServerName to apache2.conf
-echo "ServerName localhost" | sudo tee /etc/apache2/apache2.conf > /dev/null
+# echo "ServerName localhost" | sudo tee /etc/apache2/apache2.conf > /dev/null
 
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
