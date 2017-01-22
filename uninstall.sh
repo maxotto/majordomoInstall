@@ -26,5 +26,3 @@ whereis mysql
 read -rsp $'Press enter to continue...\n'
 clear
 
- 
-
