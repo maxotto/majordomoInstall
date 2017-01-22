@@ -27,3 +27,5 @@ Pay attentionon, last line of the script is `sudo /usr/bin/php /var/www/html/cyc
 
 Then open a browser, go to 127.0.0.1. Majordomo setup page should appear.
 Reboot by `sudo reboot` to check main cycle is starting at boot time. File `reboot.txt` should appear in home folder. Majordomo WEB interface should be silent about errors in main cycle.
+
+2017/01/22 - `uninstall. sh` added. Intended to purge all components installed by `2-lampMajordomo.sh`
